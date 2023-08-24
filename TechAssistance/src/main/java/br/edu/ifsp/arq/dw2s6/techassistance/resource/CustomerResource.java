@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifsp.arq.dw2s6.techassistance.domain.model.Customer;
 import br.edu.ifsp.arq.dw2s6.techassistance.repository.CustomerRepository;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/customers")
+@Valid
 public class CustomerResource {
 	
 	@Autowired
@@ -47,6 +50,13 @@ public class CustomerResource {
 			}
 		*/
 	
+
+	//{
+	//    "name": "Juliana Santos",
+	  //  "email": "julianasantos@ifsp.edu.br",
+	   // "cellphone": "(248) 762-0356",
+	//}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Customer> findById(@PathVariable Long id){
 		Optional<Customer> customer = customerRepository.findById(id);
@@ -55,7 +65,6 @@ public class CustomerResource {
 		}
 		return ResponseEntity.notFound().build();
 	}
-
 	// testar Postman
 	// GET - http://localhost:8080/customer/1
 	// GET - http://localhost:8080/customer/10
