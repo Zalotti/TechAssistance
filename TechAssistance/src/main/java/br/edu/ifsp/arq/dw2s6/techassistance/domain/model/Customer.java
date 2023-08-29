@@ -2,6 +2,8 @@ package br.edu.ifsp.arq.dw2s6.techassistance.domain.model;
 
 
 import br.edu.ifsp.arq.dw2s6.techassistance.domain.model.Address;
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -29,7 +31,7 @@ public class Customer {
 	@NotNull	
 	private String cellphone;
 	@NotNull
-	@Size(min = 10, max = 20)
+	@Size(min = 11, max = 14)
 	private String CPF;
 	@Embedded
 	private Address address;
